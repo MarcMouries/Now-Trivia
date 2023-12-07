@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_nowtrivia.GameHelper</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GameHelper</name>
+        <script><![CDATA[var GameHelper = Class.create();
+GameHelper.generateRandomID = function() {
+    var partLength = 3; // Length of each part of the ID
+    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'; // Characters to include
+    var specialChars = '_';//'!@#$%^&*'; // Special characters to use as separator
+    var result = '';
+    
+    // Generate the first part
+    for (var i = 0; i < partLength; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    // Add a random special character
+    result += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+
+    // Generate the second part
+    for (var i = 0; i < partLength; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+
+    return result;
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-07 16:43:18</sys_created_on>
+        <sys_id>a0d1925c93033d5047b0fe584dba10e9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>GameHelper</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sys_script_include_a0d1925c93033d5047b0fe584dba10e9</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-07 16:59:48</sys_updated_on>
+    </sys_script_include>
+</record_update>
