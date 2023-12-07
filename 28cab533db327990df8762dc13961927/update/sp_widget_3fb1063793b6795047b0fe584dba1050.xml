@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+
+/* COLORS */
+.bg-white {
+    background-color: #ffffff;
+}
+.bg-now-wasabi {
+    background-color: #62d84e;
+}
+
+.border-transparent {
+    border-color: transparent;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.p-8 {
+    padding: 2rem;
+}
+.rounded {
+    border-radius: 0.25rem;
+}
+
+
+.button_game:hover {
+    background: : red; //#032d42; //var(--background-hover);
+    border-color: var(--border-color-hover);
+    color: red; // var(--slot-hover);
+}
+
+.button_game:hover {
+  background-color: #42c72c;
+  color: white;
+}
+
+
+.button_game {
+  padding : 1rem;
+  border-radius: 0.375rem;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>nowtrivia_main</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>NowTrivia Main</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-12-06 02:13:17</sys_created_on>
+        <sys_id>3fb1063793b6795047b0fe584dba1050</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name>NowTrivia Main</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sp_widget_3fb1063793b6795047b0fe584dba1050</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-12-06 03:13:52</sys_updated_on>
+        <template><![CDATA[<div class="host_a_game">
+
+  <form class="bg-white shadow-lg rounded p-8">
+    <h2 class="text-2xl tracking-tight leading-10 font-bold text-gray-900 sm:text-3xl sm:leading-none md:text-4xl">Host a ServiceNow game!</h2> 
+    <input type="hidden" name="_token" value="ug5oaipqoueTHQNrgC3le6HOuqaXe3Gvlb3OeI0K"> 
+    <div class="mt-6">
+      <label for="username" class="block text-lg font-medium leading-5 text-gray-700">Your username</label> 
+      <div class="mt-2 relative rounded-md shadow-sm">
+        <input id="username" 
+               type="text" name="username" placeholder="Trivia King" 
+               class="form-input h-12 block w-full sm:text-md sm:leading-5">
+      </div> 
+      <p class="mt-2 text-sm text-gray-500">This is how your friends will see you.</p>
+    </div> 
+    <button type="submit" class="button_game mt-6 inline-flex 
+                                 items-center padding border border-transparent text-lg 
+                                 leading-5 font-semibold rounded-md 
+                                 text-white 
+                                 bg-now-wasabi 
+                                 hover:bg-indigo-600 focus:outline-none 
+                                 focus:border-indigo-700 focus:shadow-outline-indigo 
+                                 active:bg-indigo-700 transition ease-in-out duration-150">
+    Create game
+    </button>
+  </form>
+
+
+</div>]]></template>
+    </sp_widget>
+</record_update>
