@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <client_script><![CDATA[api.controller=function($scope, $window, $http, spUtil, $location) {
+	/* widget controller */
+	var c = this;
+
+	console.log("CLIENT: ");
+
+	c.createGame = function() {
+		var hostname = $scope.data.hostname;
+		console.log("CLIENT: hostname = " + hostname);
+
+		// Call the server to create a new record
+		c.server.update({hostname: hostname});
+	};
+};]]></client_script>
         <controller_as>c</controller_as>
         <css>
 
@@ -63,30 +76,40 @@
         <option_schema/>
         <public>true</public>
         <roles/>
-        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <script><![CDATA[(function() {	
+	
+	console.log("SERVER: ");
+	if (input) {
+		//data.message = (input.sometext.length > 0) ? "Hello " + input.sometext + "!" : "";
+  }
+	 if (input && input.hostname) {
+        console.log("SERVER: hostname = " + input.hostname);
+        // Add logic to create a record or perform other actions
+    }
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-12-06 02:13:17</sys_created_on>
         <sys_id>3fb1063793b6795047b0fe584dba1050</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>46</sys_mod_count>
         <sys_name>NowTrivia Main</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_3fb1063793b6795047b0fe584dba1050</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2023-12-06 03:13:52</sys_updated_on>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-09 19:30:39</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
     <h2 class="text-2xl tracking-tight leading-10 font-bold text-gray-900 sm:text-3xl sm:leading-none md:text-4xl">Host a ServiceNow game!</h2> 
     <input type="hidden" name="_token" value="ug5oaipqoueTHQNrgC3le6HOuqaXe3Gvlb3OeI0K"> 
     <div class="mt-6">
-      <label for="username" class="block text-lg font-medium leading-5 text-gray-700">Your username</label> 
+      <label for="hostname" class="block text-lg font-medium leading-5 text-gray-700">Your hostname</label> 
       <div class="mt-2 relative rounded-md shadow-sm">
-        <input id="username" 
-               type="text" name="username" placeholder="Trivia King" 
+        <input id="hostname_OLD" 
+               type="text" name="hostname" placeholder="host name" 
                class="form-input h-12 block w-full sm:text-md sm:leading-5">
       </div> 
       <p class="mt-2 text-sm text-gray-500">This is how your friends will see you.</p>
@@ -101,6 +124,12 @@
                                  active:bg-indigo-700 transition ease-in-out duration-150">
     Create game
     </button>
+    
+    
+    <input id="hostname" type="text" ng-model="data.hostname" placeholder="host name" class="form-input h-12 block w-full sm:text-md sm:leading-5">
+<button ng-click="c.createGame()" class="btn btn-primary">Create Game</button>
+
+    
   </form>
 
 
