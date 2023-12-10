@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>POST</http_method>
+        <name>game</name>
+        <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    gs.info("Now Trivia game / game");
+    gs.info("Now Trivia: REST Service");
+    var params;
+    params = request.body.data;
+    gs.info("Now Trivia API request params = " + JSON.stringify(params));
+    var host = params.host;
+    var gameTable = new GlideRecord('x_snc_nowtrivia_game');
+    gameTable.initialize();
+
+    gameTable.host = host;
+    var newRecordSysId = gameTable.insert();
+
+    gs.info('Now Trivia: New game record created with sys_id: ' + newRecordSysId);
+    return {
+        "newRecordSysId": newRecordSysId
+    };
+
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_snc_nowtrivia/game</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <requires_snc_internal_role>false</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-10 00:00:28</sys_created_on>
+        <sys_id>2e898a41474bf9105d6c8fd4f16d438d</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>game</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sys_ws_operation_2e898a41474bf9105d6c8fd4f16d438d</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-10 02:26:35</sys_updated_on>
+        <web_service_definition display_value="Now Trivia">ed69ca01474bf9105d6c8fd4f16d4346</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>

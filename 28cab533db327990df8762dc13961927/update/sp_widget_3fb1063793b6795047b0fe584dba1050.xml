@@ -5,7 +5,7 @@
 	/* widget controller */
 	var c = this;
 
-	console.log("CLIENT: ");
+	console.log("CLIENT: ", $scope.data);
 
 	c.createGame = function() {
 		var hostname = $scope.data.hostname;
@@ -13,18 +13,18 @@
 
 		$http({
 			method : "POST",
-			url : "/api/now/table/x_snc_nowtrivia_game",
+			url : "/api/x_snc_nowtrivia/game",
 			headers : {"Content-type" : "application/json"},
-			data: { "host": $scope.data.host } 
+			data: { "host": hostname } 
 
 		}).then(function success(response) {
 			console.log('success response=' + JSON.stringify(response, null, 4));
 
 			spUtil.addTrivialMessage('Updated')
 
-			$location.path('/sp');
-			$location.search({'id' : 'cls_list'});
-			$location.replace();
+		//	$location.path('/sp');
+		//	$location.search({'id' : 'cls_list'});
+		//	$location.replace();
 
 		}, function failure(response) {
 			spUtil.addErrorMessage('Severe error');
@@ -113,14 +113,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-12-06 02:13:17</sys_created_on>
         <sys_id>3fb1063793b6795047b0fe584dba1050</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>50</sys_mod_count>
         <sys_name>NowTrivia Main</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_3fb1063793b6795047b0fe584dba1050</sys_update_name>
         <sys_updated_by>Marc.Mouries</sys_updated_by>
-        <sys_updated_on>2023-12-09 20:03:40</sys_updated_on>
+        <sys_updated_on>2023-12-10 02:25:00</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
@@ -147,7 +147,7 @@
     </button>
     
     
-    <input id="host" type="text" ng-model="data.host" placeholder="host name" class="form-input h-12 block w-full sm:text-md sm:leading-5">
+    <input id="hostname" type="text" ng-model="data.hostname" placeholder="host name" class="form-input h-12 block w-full sm:text-md sm:leading-5">
 <button ng-click="c.createGame()" class="btn btn-primary">Create Game</button>
 
     
