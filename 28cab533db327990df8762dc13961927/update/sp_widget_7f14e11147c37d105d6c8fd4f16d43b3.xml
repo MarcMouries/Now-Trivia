@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $window, $http, spUtil, $location) {
+	/* widget controller */
+	var c = this;
+
+	console.log("CLIENT: ", $scope.data);
+
+	c.createGame = function() {
+		var hostname = $scope.data.hostname;
+		console.log("CLIENT: hostname = " + hostname);
+
+		$http({
+			method : "POST",
+			url : "/api/x_snc_nowtrivia/game",
+			headers : {"Content-type" : "application/json"},
+			data: { "host": hostname } 
+
+		}).then(function success(response) {
+			console.log('success response=' + JSON.stringify(response, null, 4));
+
+			spUtil.addTrivialMessage('Updated')
+
+			//	$location.path('/sp');
+			//	$location.search({'id' : 'cls_list'});
+			//	$location.replace();
+
+		}, function failure(response) {
+			spUtil.addErrorMessage('Severe error');
+			console.log('response=' + JSON.stringify(response, null, 4));
+		});
+
+
+		// Call the server to create a new record
+		c.server.update({hostname: hostname});
+	};
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+
+/* COLORS */
+.bg-white {
+  background-color: #ffffff;
+}
+.bg-now-wasabi {
+  background-color: #62d84e;
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.p-8 {
+  padding: 2rem;
+}
+.rounded {
+  border-radius: 0.25rem;
+}
+
+
+
+.w-full {
+    width: 100%;
+}
+
+.p-6 {
+    padding: 1.5rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+.flex {
+    display: flex;
+}
+
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>nowtrivia_host</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>NowTrivia Host</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {	
+	
+	console.log("SERVER: ");
+	if (input) {
+		//data.message = (input.sometext.length > 0) ? "Hello " + input.sometext + "!" : "";
+  }
+	 if (input && input.hostname) {
+        console.log("SERVER: hostname = " + input.hostname);
+        // Add logic to create a record or perform other actions
+    }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-10 15:54:44</sys_created_on>
+        <sys_id>7f14e11147c37d105d6c8fd4f16d43b3</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>NowTrivia Host</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sp_widget_7f14e11147c37d105d6c8fd4f16d43b3</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-10 16:09:30</sys_updated_on>
+        <template><![CDATA[<div class="host_a_game">
+
+  <form class="bg-white shadow-lg rounded p-8">
+    <h2 class="text-2xl tracking-tight leading-10 
+               font-bold text-gray-900 sm:text-3xl 
+               sm:leading-none md:text-4xl">Edit Game</h2> 
+    <div class="mt-6">
+        <hr>
+        <div class="w-full p-6"><p class="text-lg md:text-xl font-medium ">Share this link with your friends so they can join your game.</p> 
+          <div class="flex flex-col items-center md:flex-row md:items-stretch w-full mt-4">
+            <input class="md:block form-input block w-full sm:text-sm sm:leading-5 md:rounded-r-none my-2 md:my-0"> 
+            <button class="rounded px-4 py-2 md:py-0 md:rounded-l-none block text-white bg-indigo-500 flex-shrink-0"> Copy Link </button>
+          </div>
+        </div>
+        <hr>
+
+    </div> 
+    <button ng-click="c.createGame()" 
+            type="submit" 
+            class="button_game mt-6 inline-flex 
+                                 items-center padding border border-transparent text-lg 
+                                 leading-5 font-semibold rounded-md 
+                                 text-white 
+                                 bg-now-wasabi 
+                                 hover:bg-indigo-600 focus:outline-none 
+                                 focus:border-indigo-700 focus:shadow-outline-indigo 
+                                 active:bg-indigo-700 transition ease-in-out duration-150">
+    Create game
+    </button>
+    
+  </form>
+
+
+</div>]]></template>
+    </sp_widget>
+</record_update>

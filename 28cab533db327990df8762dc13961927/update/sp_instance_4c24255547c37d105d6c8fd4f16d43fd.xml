@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">8824255547c37d105d6c8fd4f16d43ee</sp_column>
+        <sp_widget display_value="NowTrivia Host">7f14e11147c37d105d6c8fd4f16d43b3</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-10 15:54:45</sys_created_on>
+        <sys_id>4c24255547c37d105d6c8fd4f16d43fd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sp_instance_4c24255547c37d105d6c8fd4f16d43fd</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-10 15:54:45</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=4c24255547c37d105d6c8fd4f16d43fd"/>
+</record_update>
