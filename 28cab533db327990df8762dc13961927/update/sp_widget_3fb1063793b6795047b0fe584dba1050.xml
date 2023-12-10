@@ -22,9 +22,9 @@
 
 			spUtil.addTrivialMessage('Updated')
 
-		//	$location.path('/sp');
-		//	$location.search({'id' : 'cls_list'});
-		//	$location.replace();
+			//	$location.path('/sp');
+			//	$location.search({'id' : 'cls_list'});
+			//	$location.replace();
 
 		}, function failure(response) {
 			spUtil.addErrorMessage('Severe error');
@@ -41,47 +41,47 @@
 
 /* COLORS */
 .bg-white {
-    background-color: #ffffff;
+  background-color: #ffffff;
 }
 .bg-now-wasabi {
-    background-color: #62d84e;
+  background-color: #62d84e;
 }
 
 .border-transparent {
-    border-color: transparent;
+  border-color: transparent;
 }
 
 .font-semibold {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 .p-8 {
-    padding: 2rem;
+  padding: 2rem;
 }
 .rounded {
-    border-radius: 0.25rem;
+  border-radius: 0.25rem;
 }
 
-
-.button_game:hover {
-    background: : red; //#032d42; //var(--background-hover);
-    border-color: var(--border-color-hover);
-    color: red; // var(--slot-hover);
+.hostname {
+  height: 4rem;
+  border-radius: 0.375rem;
+  border-color: #d2d6dc;
+  border-width: 1px;
 }
-
-.button_game:hover {
-  background-color: #42c72c;
-  color: white;
-}
-
 
 .button_game {
   padding : 1rem;
   border-radius: 0.375rem;
 }
+.button_game:hover {
+    background-color: #42c72c;
+    border-color: var(--border-color-hover);
+}
+
+
 
 </css>
         <data_table>sp_instance</data_table>
@@ -113,14 +113,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-12-06 02:13:17</sys_created_on>
         <sys_id>3fb1063793b6795047b0fe584dba1050</sys_id>
-        <sys_mod_count>50</sys_mod_count>
+        <sys_mod_count>59</sys_mod_count>
         <sys_name>NowTrivia Main</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_3fb1063793b6795047b0fe584dba1050</sys_update_name>
         <sys_updated_by>Marc.Mouries</sys_updated_by>
-        <sys_updated_on>2023-12-10 02:25:00</sys_updated_on>
+        <sys_updated_on>2023-12-10 15:31:32</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
@@ -129,13 +129,19 @@
     <div class="mt-6">
       <label for="hostname" class="block text-lg font-medium leading-5 text-gray-700">Your hostname</label> 
       <div class="mt-2 relative rounded-md shadow-sm">
-        <input id="hostname_OLD" 
-               type="text" name="hostname" placeholder="host name" 
+        <input id="hostname" 
+               type="text" 
+               name="hostname" 
+               class="hostname"
+               ng-model="data.hostname"
+               placeholder="host name" 
                class="form-input h-12 block w-full sm:text-md sm:leading-5">
       </div> 
       <p class="mt-2 text-sm text-gray-500">This is how your friends will see you.</p>
     </div> 
-    <button type="submit" class="button_game mt-6 inline-flex 
+    <button ng-click="c.createGame()" 
+            type="submit" 
+            class="button_game mt-6 inline-flex 
                                  items-center padding border border-transparent text-lg 
                                  leading-5 font-semibold rounded-md 
                                  text-white 
@@ -145,11 +151,6 @@
                                  active:bg-indigo-700 transition ease-in-out duration-150">
     Create game
     </button>
-    
-    
-    <input id="hostname" type="text" ng-model="data.hostname" placeholder="host name" class="form-input h-12 block w-full sm:text-md sm:leading-5">
-<button ng-click="c.createGame()" class="btn btn-primary">Create Game</button>
-
     
   </form>
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_snc_nowtrivia_game" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Game - Default view" name="x_snc_nowtrivia_game" related_list="NULL" sys_domain="global" view="Default view">6641e51147c37d105d6c8fd4f16d43da</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>x_snc_nowtrivia_player.game</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>Marc.Mouries</sys_created_by>
+            <sys_created_on>2023-12-10 15:42:22</sys_created_on>
+            <sys_id>ba41e51147c37d105d6c8fd4f16d43db</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>Marc.Mouries</sys_updated_by>
+            <sys_updated_on>2023-12-10 15:42:22</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Game - Default view</calculated_name>
+            <filter/>
+            <name>x_snc_nowtrivia_game</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>Marc.Mouries</sys_created_by>
+            <sys_created_on>2023-12-10 15:42:22</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6641e51147c37d105d6c8fd4f16d43da</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Game - Default view</sys_name>
+            <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+            <sys_update_name>sys_ui_related_x_snc_nowtrivia_game_null</sys_update_name>
+            <sys_updated_by>Marc.Mouries</sys_updated_by>
+            <sys_updated_on>2023-12-10 15:42:22</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1d70a19d47837d105d6c8fd4f16d43bb" label="Player" max_length="40" name="x_snc_nowtrivia_player" type="collection">
+        <element label="Game" max_length="32" name="game" reference="x_snc_nowtrivia_game" type="reference"/>
+        <element label="User name" max_length="40" name="username" type="string"/>
+        <index name="index">
+            <element name="game"/>
+        </index>
+    </element>
+</database>
