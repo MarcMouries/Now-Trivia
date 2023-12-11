@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="DELETE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl/>
+        <http_method>GET</http_method>
+        <name>players</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    gs.info("Now Trivia: REST Service: Players");
+    gs.info("Now Trivia API request = " + JSON.stringify(request));
+
+   // var uri = request.uri;
+   // var url = request.url;
+   // var queryParams = request.queryParams;
+   // var customHeader = request.getHeader('X-Custom');
+
+    return {
+        "uri": "hello",
+        
+    };
+    /*
+    var gameId = request.pathParams.gameId;
+    var playerList = []; 
+    var playerGr = new GlideRecord('x_snc_nowtrivia_player');
+
+    playerGr.addQuery('game', gameId);
+    playerGr.query();
+
+    while (playerGr.next()) {
+        var player = {};
+        player.sys_id = playerGr.getUniqueValue();
+        player.name = playerGr.getValue('name'); 
+        playerList.push(player);
+    }
+    return playerList;
+	*/
+})();]]></operation_script>
+        <operation_uri>/api/x_snc_nowtrivia/game/{gameId}/players</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/{gameId}/players</relative_path>
+        <request_example/>
+        <requires_acl_authorization>false</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <requires_snc_internal_role>false</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 01:31:21</sys_created_on>
+        <sys_id>f517a35d4783bd105d6c8fd4f16d43cd</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>players</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sys_ws_operation_f517a35d4783bd105d6c8fd4f16d43cd</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 01:49:23</sys_updated_on>
+        <web_service_definition display_value="Now Trivia">ed69ca01474bf9105d6c8fd4f16d4346</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Now Trivia">28cab533db327990df8762dc13961927</application>
+        <file_path/>
+        <instance_id>1d68f923dbbe199407072f17d496199e</instance_id>
+        <instance_name>appengine4govdemo</instance_name>
+        <name>sys_ws_operation_f517a35d4783bd105d6c8fd4f16d43cd</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ws_operation"&gt;&lt;sys_ws_operation action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;consumes&gt;application/json,application/xml,text/xml&lt;/consumes&gt;&lt;consumes_customized&gt;false&lt;/consumes_customized&gt;&lt;default_operation_uri/&gt;&lt;enforce_acl/&gt;&lt;http_method&gt;GET&lt;/http_method&gt;&lt;name&gt;players&lt;/name&gt;&lt;operation_script&gt;&lt;![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    gs.info("Now Trivia: REST Service: Players");
+    gs.info("Now Trivia API request = " + JSON.stringify(request));
+
+   // var uri = request.uri;
+   // var url = request.url;
+   // var queryParams = request.queryParams;
+   // var customHeader = request.getHeader('X-Custom');
+
+    return {
+        "uri": "hello",
+        
+    };
+    /*
+    var gameId = request.pathParams.gameId;
+    var playerList = []; 
+    var playerGr = new GlideRecord('x_snc_nowtrivia_player');
+
+    playerGr.addQuery('game', gameId);
+    playerGr.query();
+
+    while (playerGr.next()) {
+        var player = {};
+        player.sys_id = playerGr.getUniqueValue();
+        player.name = playerGr.getValue('name'); 
+        playerList.push(player);
+    }
+    return playerList;
+	*/
+})();]]&gt;&lt;/operation_script&gt;&lt;operation_uri&gt;/api/x_snc_nowtrivia/game/{gameId}/players&lt;/operation_uri&gt;&lt;produces&gt;application/json,application/xml,text/xml&lt;/produces&gt;&lt;produces_customized&gt;false&lt;/produces_customized&gt;&lt;relative_path&gt;/{gameId}/players&lt;/relative_path&gt;&lt;request_example/&gt;&lt;requires_acl_authorization&gt;false&lt;/requires_acl_authorization&gt;&lt;requires_authentication&gt;false&lt;/requires_authentication&gt;&lt;requires_snc_internal_role&gt;false&lt;/requires_snc_internal_role&gt;&lt;short_description/&gt;&lt;sys_class_name&gt;sys_ws_operation&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Marc.Mouries&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2023-12-11 01:31:21&lt;/sys_created_on&gt;&lt;sys_id&gt;f517a35d4783bd105d6c8fd4f16d43cd&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;players&lt;/sys_name&gt;&lt;sys_package display_value="Now Trivia" source="x_snc_nowtrivia"&gt;28cab533db327990df8762dc13961927&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Now Trivia"&gt;28cab533db327990df8762dc13961927&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ws_operation_f517a35d4783bd105d6c8fd4f16d43cd&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Marc.Mouries&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2023-12-11 01:49:23&lt;/sys_updated_on&gt;&lt;web_service_definition display_value="Now Trivia"&gt;ed69ca01474bf9105d6c8fd4f16d4346&lt;/web_service_definition&gt;&lt;web_service_version/&gt;&lt;/sys_ws_operation&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>868434672</payload_hash>
+        <record_name>players</record_name>
+        <reverted_from/>
+        <source>0b51fc49478fb9105d6c8fd4f16d4354</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 01:49:23</sys_created_on>
+        <sys_id>ee3c23d547c3bd105d6c8fd4f16d438a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18c56908ceb0000001</sys_recorded_at>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 01:49:23</sys_updated_on>
+        <type>Scripted REST Resource</type>
+        <update_guid>263c23d550c3bd101f6717f56d4cc68a</update_guid>
+        <update_guid_history>263c23d550c3bd101f6717f56d4cc68a:868434672,b98b275507c3bd1014207f7c8789c982:1112344578,70cae7156fc3bd104a91cad274cd7817:1563771078,1ef9e7112ac3bd10ae6282d3d7c064f8:-137355152,54d96f9154c3bd1070c2f25dcd6994a8:-430455727,56092351dbc3bd10fa1eca8ca3ad406c:311040534,9e18271d7783bd104732e4db2c157b65:-1141283947</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 02:01:04</sys_created_on>
+        <sys_db_object display_value="" name="sys_ws_operation">sys_ws_operation</sys_db_object>
+        <sys_id>a1ea7790f68b4cc8bdced030bbb79640</sys_id>
+        <sys_metadata>f517a35d4783bd105d6c8fd4f16d43cd</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>players</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_scope_delete display_value="">c752d392ed8d410c958270aea1cbc249</sys_scope_delete>
+        <sys_update_name>sys_ws_operation_f517a35d4783bd105d6c8fd4f16d43cd</sys_update_name>
+        <sys_update_version display_value="sys_ws_operation_f517a35d4783bd105d6c8fd4f16d43cd">ee3c23d547c3bd105d6c8fd4f16d438a</sys_update_version>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 02:01:04</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

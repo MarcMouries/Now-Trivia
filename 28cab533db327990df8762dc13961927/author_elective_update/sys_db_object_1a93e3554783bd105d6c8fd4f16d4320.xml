@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object">
+    <sys_db_object action="DELETE">
+        <access>public</access>
+        <actions_access>false</actions_access>
+        <alter_access>false</alter_access>
+        <caller_access/>
+        <client_scripts_access>false</client_scripts_access>
+        <configuration_access>false</configuration_access>
+        <create_access>false</create_access>
+        <create_access_controls>true</create_access_controls>
+        <delete_access>false</delete_access>
+        <is_document_table>false</is_document_table>
+        <is_extendable>false</is_extendable>
+        <label>Test</label>
+        <live_feed_enabled>false</live_feed_enabled>
+        <name>x_snc_nowtrivia_test</name>
+        <number_ref/>
+        <provider_class/>
+        <read_access>true</read_access>
+        <scriptable_table>false</scriptable_table>
+        <super_class/>
+        <sys_class_name>sys_db_object</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 01:12:03</sys_created_on>
+        <sys_id>1a93e3554783bd105d6c8fd4f16d4320</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sys_db_object_1a93e3554783bd105d6c8fd4f16d4320</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 01:12:03</sys_updated_on>
+        <update_access>false</update_access>
+        <user_role display_value="public" name="public">b0593b350a0a0aa7001d689e4542dc28</user_role>
+        <ws_access>true</ws_access>
+    </sys_db_object>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Now Trivia">28cab533db327990df8762dc13961927</application>
+        <file_path/>
+        <instance_id>1d68f923dbbe199407072f17d496199e</instance_id>
+        <instance_name>appengine4govdemo</instance_name>
+        <name>sys_db_object_1a93e3554783bd105d6c8fd4f16d4320</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object"><sys_db_object action="INSERT_OR_UPDATE"><access>public</access><actions_access>false</actions_access><alter_access>false</alter_access><caller_access/><client_scripts_access>false</client_scripts_access><configuration_access>false</configuration_access><create_access>false</create_access><create_access_controls>true</create_access_controls><delete_access>false</delete_access><is_document_table>false</is_document_table><is_extendable>false</is_extendable><label>Test</label><live_feed_enabled>false</live_feed_enabled><name>x_snc_nowtrivia_test</name><number_ref/><provider_class/><read_access>true</read_access><scriptable_table>false</scriptable_table><super_class/><sys_class_name>sys_db_object</sys_class_name><sys_created_by>Marc.Mouries</sys_created_by><sys_created_on>2023-12-11 01:12:03</sys_created_on><sys_id>1a93e3554783bd105d6c8fd4f16d4320</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Test</sys_name><sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package><sys_policy/><sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope><sys_update_name>sys_db_object_1a93e3554783bd105d6c8fd4f16d4320</sys_update_name><sys_updated_by>Marc.Mouries</sys_updated_by><sys_updated_on>2023-12-11 01:12:03</sys_updated_on><update_access>false</update_access><user_role display_value="public" name="public">b0593b350a0a0aa7001d689e4542dc28</user_role><ws_access>true</ws_access></sys_db_object></record_update>]]></payload>
+        <payload_hash>477016092</payload_hash>
+        <record_name>Test</record_name>
+        <reverted_from/>
+        <source>0b51fc49478fb9105d6c8fd4f16d4354</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 01:12:04</sys_created_on>
+        <sys_id>37a3a7554783bd105d6c8fd4f16d43ce</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18c566e64260000001</sys_recorded_at>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 01:12:04</sys_updated_on>
+        <type>Table</type>
+        <update_guid>3ba3a755f783bd10f263de6b94ff09cd</update_guid>
+        <update_guid_history>3ba3a755f783bd10f263de6b94ff09cd:477016092</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-11 02:09:37</sys_created_on>
+        <sys_db_object display_value="" name="sys_db_object">sys_db_object</sys_db_object>
+        <sys_id>00a43b2738a94b8080ae43a7ca594840</sys_id>
+        <sys_metadata>1a93e3554783bd105d6c8fd4f16d4320</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Test</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_scope_delete display_value="">c752d392ed8d410c958270aea1cbc249</sys_scope_delete>
+        <sys_update_name>sys_db_object_1a93e3554783bd105d6c8fd4f16d4320</sys_update_name>
+        <sys_update_version display_value="sys_db_object_1a93e3554783bd105d6c8fd4f16d4320">37a3a7554783bd105d6c8fd4f16d43ce</sys_update_version>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-11 02:09:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
