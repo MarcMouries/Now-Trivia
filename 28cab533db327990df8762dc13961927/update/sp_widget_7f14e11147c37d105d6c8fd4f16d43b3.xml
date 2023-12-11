@@ -21,7 +21,25 @@
 		}, function(err) {
 			spUtil.addErrorMessage('Could not copy text: ', err);
 		});
-	};
+	}
+	
+	
+	var query = "";
+    console.log("query = " + query);
+
+	spUtil.recordWatch($scope, "x_snc_nowtrivia_player",
+										 query, 
+										 function(payload) {
+    console.log("Update in players for game " + c.gameId + ": ", payload);
+		
+	});
+	
+		spUtil.recordWatch($scope, "x_snc_nowtrivia_player",
+										 "game.sys_id=ad37d2158743f11031a07558dabb3577", 
+										 function(payload) {
+		console.log("game.sys_id=ad37d2158743f11031a07558dabb3577 payload=", payload); 
+		
+	});
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>
@@ -107,14 +125,14 @@
         <sys_created_by>Marc.Mouries</sys_created_by>
         <sys_created_on>2023-12-10 15:54:44</sys_created_on>
         <sys_id>7f14e11147c37d105d6c8fd4f16d43b3</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>NowTrivia Host</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_7f14e11147c37d105d6c8fd4f16d43b3</sys_update_name>
         <sys_updated_by>Marc.Mouries</sys_updated_by>
-        <sys_updated_on>2023-12-10 19:36:33</sys_updated_on>
+        <sys_updated_on>2023-12-11 00:15:14</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
@@ -122,24 +140,28 @@
                font-bold text-gray-900 sm:text-3xl 
                sm:leading-none md:text-4xl">Edit Game</h2> 
     <div class="mt-6">
-        <hr>
-        <div class="w-full p-6"><p class="text-lg md:text-xl font-medium ">Share this link with your friends so they can join your game.</p> 
-          <div class="flex flex-col items-center md:flex-row md:items-stretch w-full mt-4">
-            <input id=joinGameUrl
-                   ng-model="c.joinGameUrl"
-                   class="game_link
-                          md:block form-input 
-                          block w-full 
-                          sm:text-sm sm:leading-5 
-                          rounded-r-none my-2 md:my-0"> 
-            <button ng-click="c.copyLinkToClipboard()" 
-                    class="text-white bg-now-wasabi 
-                           border-transparent
-                           font-semibold rounded-l-none
-                           rounded px-4 py-2 md:py-0  block"> Copy Link </button>
-          </div>
+      <hr>
+      <div class="w-full p-6"><p class="text-lg md:text-xl font-medium ">Share this link with your friends so they can join your game.</p> 
+        <div class="flex flex-col items-center md:flex-row md:items-stretch w-full mt-4">
+          <input id=joinGameUrl
+                 ng-model="c.joinGameUrl"
+                 class="game_link
+                        md:block form-input 
+                        block w-full 
+                        sm:text-sm sm:leading-5 
+                        rounded-r-none my-2 md:my-0"> 
+          <button ng-click="c.copyLinkToClipboard()" 
+                  class="text-white bg-now-wasabi 
+                         border-transparent
+                         font-semibold rounded-l-none
+                         rounded px-4 py-2 md:py-0  block"> Copy Link </button>
         </div>
-        <hr>
+      </div>
+      <hr>
+      
+      <h2>
+        Players
+      </h2>
     </div> 
   </form>
 </div>]]></template>
