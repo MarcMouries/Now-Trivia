@@ -6,6 +6,10 @@
 	var c = this;
 
 	console.log("CLIENT: ", $scope.data);
+	
+	
+				console.log('1.  gs.getUser()=' + JSON.stringify(gs.getUser(), null, 4));
+
 
 	c.createGame = function() {
 		var hostname = $scope.data.hostname;
@@ -19,25 +23,95 @@
 
 		}).then(function success(response) {
 			console.log('success response=' + JSON.stringify(response, null, 4));
-			const newRecordSysId = response.data.result.newRecordSysId;
-			
+			var newRecordSysId = response.data.result.newRecordSysId;
+
 			spUtil.addTrivialMessage('Game created');
 			
+			// TEST LOGIN
+			
+			login("guest", "AppEngine4Ever!");
+							console.log('2.  gs.getUser()=' + JSON.stringify(gs.getUser(), null, 4));
+
+
 			// var instanceName = $window.location.host;
-      // $window.location.href = 'https://' + instanceName + '/nowtrivia?id=host&game_id=' + newRecordSysId;
- 
-			$location.path('/nowtrivia');
-			$location.search({'id' : 'host', 'game_id': newRecordSysId});
-			$location.replace();
+			// $window.location.href = 'https://' + instanceName + '/nowtrivia?id=host&game_id=' + newRecordSysId;
+
+		//	$location.path('/nowtrivia');
+		//	$location.search({'id' : 'host', 'game_id': newRecordSysId});
+		//	$location.replace();
+			
+			// Get the current user's name
+			if (g_user){
+				console.log("1) currentUser = " + g_user.userID)
+			} 
+			else {
+				console.log("currentUser = (g_user unvail)")
+			}
+			
+			
+			
 		}, function failure(response) {
 			spUtil.addErrorMessage('Severe error');
 			console.log('response=' + JSON.stringify(response, null, 4));
 		});
+	} // create Game
+	
+	
+	function login(username, password, isCertLogin) {
+		var url = spUtil.getURL({sysparm_type: 'view_form.login'});
 
+		return $http({
+			method: 'post',
+			url: url,
+			data: $.param({
+				'sysparm_type': 'login',
+				'ni.nolog.user_password': true,
+				'remember_me': !!c.remember_me ? true : false,
+				'user_name': username,
+				'user_password': password,
+				'get_redirect_url': true,
+				'sysparm_goto_url': '/future-fellows',
+				'mfa_redirect_url': c.data.pageURI
+			}),
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		}).then(function(response) {
+			if (!response.data) {
+				c.message = $scope.data.errorMsg;
+				return;
+			}
 
-		// Call the server to create a new record
-		c.server.update({hostname: hostname});
+			if (response.data.status == 'success') {
+					handleLoginSuccess.call(response);
+			} else {
+				// wrong username or password
+				c.message = response.data.message;
+				c.password = "";
+				c.username = "";
+				angular.element("#username").focus();
+			}
+
+		}, function errorCallback(response) {
+			c.message = $scope.data.errorMsg;
+		});
 	};
+
+	function handleLoginSuccess() {
+		c.success = this.data.message;
+		console.log("handleLoginSuccess: " + c.success)
+		
+					// Get the current user's name
+			if (g_user){
+				console.log("2) currentUser = " + g_user.userID)
+			} 
+			else {
+				console.log("currentUser = (g_user unvail)")
+			}
+		//$window.location = this.data.redirect_url;
+	}
+	
+	
 };]]></client_script>
         <controller_as>c</controller_as>
         <css>
@@ -116,14 +190,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2023-12-06 02:13:17</sys_created_on>
         <sys_id>3fb1063793b6795047b0fe584dba1050</sys_id>
-        <sys_mod_count>65</sys_mod_count>
+        <sys_mod_count>68</sys_mod_count>
         <sys_name>NowTrivia Main</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_3fb1063793b6795047b0fe584dba1050</sys_update_name>
         <sys_updated_by>Marc.Mouries</sys_updated_by>
-        <sys_updated_on>2023-12-10 19:37:28</sys_updated_on>
+        <sys_updated_on>2023-12-14 02:29:59</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
