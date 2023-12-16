@@ -4,28 +4,25 @@
         <client_script><![CDATA[api.controller=function($scope, $window, $http, spUtil, $location) {
 	var c = this;
 
-	console.log("CLIENT: ", $scope.data);
-
 	// Extract 'game_id' from the URL
 	var searchObject = $location.search();
 	c.gameId = searchObject.game_id;
-	
-	
-	// playerList
-	c.playerList = []; 
-    c.loadPlayers = function() {
-        var gameId = c.gameId
 
-        $http.get('/api/x_snc_nowtrivia/game/' + gameId + '/players')
-					.then(function(response) {
-            c.playerList = response.data.result; 
-        }, function(error) {
-            console.error('Error fetching players:', error);
-        });
-    };
-    // Load players when the widget loads
-    c.loadPlayers();
-	
+	// PLAYERS LIST
+	c.playerList = []; 
+	c.loadPlayers = function() {
+		var gameId = c.gameId
+
+		$http.get('/api/x_snc_nowtrivia/game/' + gameId + '/players')
+			.then(function(response) {
+			c.playerList = response.data.result; 
+			console.log("PLAYERS =", c.playerList);
+		}, function(error) {
+			console.error('Error fetching players:', error);
+		});
+	};
+	// Load players when the widget loads
+	c.loadPlayers();
 
 	// Generate join game URL
 	c.joinGameUrl = 'https://' + $window.location.host + '/nowtrivia?id=join-game&game_id=' + c.gameId;
@@ -39,33 +36,33 @@
 			spUtil.addErrorMessage('Could not copy text: ', err);
 		});
 	}
-	
-	
-	var query = "";
-    console.log("query = " + query);
 
-	
-	// x_snc_nowtrivia_test
-		spUtil.recordWatch($scope, "x_snc_nowtrivia_test",
-										 "", 
-										 function(payload) {
-    console.log("Update in x_snc_nowtrivia_test for game " + c.gameId + ": ", payload);
-		
-	});
-	
-	
-	spUtil.recordWatch($scope, "x_snc_nowtrivia_player",
-										 query, 
-										 function(payload) {
-    console.log("Update in players for game " + c.gameId + ": ", payload);
-		
-	});
-	
-		spUtil.recordWatch($scope, "x_snc_nowtrivia_player",
-										 "game.sys_id=ad37d2158743f11031a07558dabb3577", 
-										 function(payload) {
-		console.log("game.sys_id=ad37d2158743f11031a07558dabb3577 payload=", payload); 
-		
+	// RECORD WATCHER PLAYERS LIST
+	var query = "game=" + c.gameId;
+	console.log("query = " + query);
+	spUtil.recordWatch($scope, "x_snc_nowtrivia_player", query, function(payload) {
+		console.log("Update in players for game " + c.gameId + ": ", payload);
+		// Check if the payload indicates a new player added
+		if (payload.data.operation === 'insert') {
+			var record = payload.data.record;
+			var newPlayer = {
+				sys_id: record.sys_id,
+				name: record.name.value,
+				isNew: true // Temporary property to indicate a new player
+			};
+			c.playerList.push(newPlayer);
+
+			// Remove the isNew flag after a delay
+			setTimeout(function() {
+				newPlayer.isNew = false;
+				$scope.$apply(); // Update the scope
+			}, 3000); // Duration of the CSS transition
+
+
+		}
+		else {
+			c.loadPlayers();
+		}
 	});
 };]]></client_script>
         <controller_as>c</controller_as>
@@ -94,7 +91,7 @@
   padding: 2rem;
 }
 .rounded {
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 }
 
 .rounded-l-none {
@@ -125,22 +122,17 @@
 
 /* Style for the player list container */
 .player-list-container {
+    display: flex;
+    flex-direction: column;
     padding: 10px;
     background-color: #f2f2f2;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     max-width: 300px; /* Adjust the width as needed */
-    margin: auto;
 }
 
-/* Style for each player item */
-.player-list-container ul {
-    list-style: none; /* Removes default list styling */
-    padding: 0;
-    margin: 0;
-}
 
-.player-list-container li {
+.player {
     padding: 8px 12px;
     background-color: #ffffff;
     border: 1px solid #ddd;
@@ -149,8 +141,22 @@
     transition: background-color 0.3s;
 }
 
-/* Hover effect for list items */
-.player-list-container li:hover {
+/* Initial style for new players */
+.new-player {
+    background-color: yellow; /* Highlight color */
+    transition: background-color 3s ease-out; /* Transition effect */
+}
+
+/* Style for all players */
+.player {
+    _background-color: transparent; /* Normal background color */
+    /* Other styling */
+}
+
+
+
+/* Hover effect for players */
+.player:hover {
     background-color: #e9e9e9;
 }
 
@@ -197,14 +203,14 @@
         <sys_created_by>Marc.Mouries</sys_created_by>
         <sys_created_on>2023-12-10 15:54:44</sys_created_on>
         <sys_id>7f14e11147c37d105d6c8fd4f16d43b3</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>NowTrivia Host</sys_name>
         <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
         <sys_policy/>
         <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
         <sys_update_name>sp_widget_7f14e11147c37d105d6c8fd4f16d43b3</sys_update_name>
         <sys_updated_by>Marc.Mouries</sys_updated_by>
-        <sys_updated_on>2023-12-11 02:21:24</sys_updated_on>
+        <sys_updated_on>2023-12-16 16:18:16</sys_updated_on>
         <template><![CDATA[<div class="host_a_game">
 
   <form class="bg-white shadow-lg rounded p-8">
@@ -236,17 +242,17 @@
       </h2>
 
       <div class="player-list-container" ng-if="c.playerList.length">
-        <ul>
-          <li ng-repeat="player in c.playerList">
-            {{player.name}}
-          </li>
-        </ul>
+
+        <div class="player" 
+             ng-repeat="player in c.playerList track by player.sys_id" 
+             ng-class="{'new-player': player.isNew}">       
+          {{player.name}}
+        </div>
+
       </div>
       <div class="no-players" ng-if="!c.playerList.length">
         No players found.
       </div>
-
-
     </div> 
   </form>
 </div>]]></template>
