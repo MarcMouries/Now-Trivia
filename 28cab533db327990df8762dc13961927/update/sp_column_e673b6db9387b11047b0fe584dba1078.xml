@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_column">
+    <sp_column action="INSERT_OR_UPDATE">
+        <class_name/>
+        <order>1</order>
+        <semantic_tag/>
+        <size/>
+        <size_lg/>
+        <size_sm/>
+        <size_xs/>
+        <sp_row display_value="1">2a73b6db9387b11047b0fe584dba1075</sp_row>
+        <sys_class_name>sp_column</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-17 02:49:18</sys_created_on>
+        <sys_id>e673b6db9387b11047b0fe584dba1078</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>1</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sp_column_e673b6db9387b11047b0fe584dba1078</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-17 02:49:18</sys_updated_on>
+    </sp_column>
+</record_update>

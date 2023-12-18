@@ -28,6 +28,20 @@
             <sys_user/>
             <type/>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>url</element>
+            <position>3</position>
+            <sys_created_by>Marc.Mouries</sys_created_by>
+            <sys_created_on>2023-12-17 03:46:15</sys_created_on>
+            <sys_id>b4804b1f93c7b11047b0fe584dba10cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_nowtrivia_game" sys_domain="global" view="Default view">1d70dad893033d5047b0fe584dba1074</sys_ui_section>
+            <sys_updated_by>Marc.Mouries</sys_updated_by>
+            <sys_updated_on>2023-12-17 03:46:15</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>
