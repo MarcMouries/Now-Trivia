@@ -2,5 +2,6 @@
     <element db_object_id="c570d21c93033d5047b0fe584dba105c" label="Game" max_length="40" name="x_snc_nowtrivia_game" type="collection">
         <element display="true" label="Game ID" max_length="40" name="game_id" read_only="true" type="string"/>
         <element label="Host" max_length="40" name="host" type="string"/>
+        <element label="URL" max_length="1024" name="url" read_only="true" type="url"/>
     </element>
 </database>
