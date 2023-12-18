@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_nowtrivia.TriviaGame</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>TriviaGame</name>
+        <script><![CDATA[var TriviaGame = Class.create();
+
+// REGISTER PLAYER
+/* testing:
+var playerName = 'Test Player';
+var result = x_snc_nowtrivia.TriviaGame.registerPlayer(playerName);
+gs.info('Registration Result: ' + JSON.stringify(result));
+
+*/
+TriviaGame.registerPlayer = function(playerName) {
+    var userGr = new GlideRecord('sys_user');
+    userGr.initialize();
+    userGr.name = playerName;
+    userGr.user_name = playerName.toLowerCase().replace(/\s+/g, '');
+    var user_sysId = userGr.insert();
+
+    if (user_sysId) {
+        TriviaGame.assignRole(user_sysId);
+        return {
+            success: true,
+            user: {
+                sysId: user_sysId,
+                playerName: playerName
+            }
+        };
+    } else {
+        return {
+            success: false,
+            error: 'Failed to create user'
+        };
+    }
+};
+
+// ASSIGN ROLE
+TriviaGame.assignRole = function(user_sysId) {
+    var userRoleGr = new GlideRecord('sys_user_has_role');
+    userRoleGr.initialize();
+    userRoleGr.user = user_sysId;
+    userRoleGr.role = '8270561c93033d5047b0fe584dba1064'; // role name = x_snc_nowtrivia.player
+    userRoleGr.insert();
+};
+
+TriviaGame.prototype = {
+    initialize: function() {},
+
+    type: 'TriviaGame'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Marc.Mouries</sys_created_by>
+        <sys_created_on>2023-12-17 04:45:49</sys_created_on>
+        <sys_id>59ad879f930bb11047b0fe584dba1071</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>TriviaGame</sys_name>
+        <sys_package display_value="Now Trivia" source="x_snc_nowtrivia">28cab533db327990df8762dc13961927</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Now Trivia">28cab533db327990df8762dc13961927</sys_scope>
+        <sys_update_name>sys_script_include_59ad879f930bb11047b0fe584dba1071</sys_update_name>
+        <sys_updated_by>Marc.Mouries</sys_updated_by>
+        <sys_updated_on>2023-12-17 05:12:04</sys_updated_on>
+    </sys_script_include>
+</record_update>
